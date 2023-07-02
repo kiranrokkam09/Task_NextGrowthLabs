@@ -27,12 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.style.height = height + "px";
 })
 console.log("hi");
-// let a = fetch("http://127.0.0.1:8000/api/allapps?format=json");
-// a.then((response1) => {
-//     return response1.json();
-// }).then((response2) => {
-//     console.log(response2);
-// })
 
 const file = document.querySelector(".home");
 
