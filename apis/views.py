@@ -3,18 +3,20 @@ from django.http import HttpResponse
 from .serializers import UserSerializer,ProfileSerializer,AdminAppSerializer, UserAppSerializer,CreateAppSerializer
 from rest_framework import generics
 from .models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,logout
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .models import App
-from rest_framework.decorators import permission_classes
+from rest_framework.decorators import permission_classes,api_view
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,AllowAny
 from .models import Profile
+from rest_framework.authtoken.models import Token
 # Create your views here.
 
 
 def index(request):
+    print(request.headers)
     return HttpResponse("Hello API !!")
 
 # Register a new user
@@ -37,9 +39,20 @@ class login(APIView):
                 "ERROR": "Required fields are not provided"
             }, status = status.HTTP_400_BAD_REQUEST)
         user = authenticate(username = username, password = password)
+        token,_ = Token.objects.get_or_create(user= user)
         return Response({
-            "Messege" : "Succesfullly logged in"
+            "Messege" : "Succesfullly logged in",
+            "Token": token.key
         }, status = status.HTTP_200_OK)
+
+@permission_classes((AllowAny, ))
+@api_view(["GET"])
+def logout_view(request):
+    request.user.auth_token.delete()
+
+    logout(request)
+
+    return Response('User Logged out successfully')
 
 '''admin creates a task without file '''
 @permission_classes((IsAdminUser,))
