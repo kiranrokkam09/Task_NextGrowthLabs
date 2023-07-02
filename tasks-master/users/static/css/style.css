@@ -1,0 +1,200 @@
+#profile-img {
+    padding-top: 10px;
+}
+
+#profile-name {
+    padding-left: 80px;
+    font-size: 40px;
+}
+
+#profile-card {
+    margin-left: 30%;
+    margin-right: 50%;
+}
+
+
+.container {
+    display: flex;
+}
+
+.navi {
+    /* display: block; */
+    background-color: #DFE6ED;
+    height: 70px;
+    width: 100%;
+
+}
+
+.title {
+    display: block;
+    margin: auto;
+}
+
+.file {
+    display: inline;
+}
+
+.sidenav {
+    height: 490px;
+    width: auto;
+    z-index: 1;
+    top: 10;
+    left: 0;
+    background-color: #DFE6ED;
+    padding-top: 3%;
+}
+
+.sidenav button {
+    margin: auto;
+    margin-left: 0px;
+    margin-right: auto;
+    width: 125px;
+    padding: 8px 8px 8px 8px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    background-color: white;
+    color: #6558F5;
+}
+
+.content {
+    padding-top: 20px;
+}
+
+.form-control {
+    margin-top: 30px;
+}
+
+body {
+    overflow-x: hidden;
+    /* Hide scrollbars */
+    line-height: 1.5;
+    font-size: 0.875rem;
+    font-family: var(--ff-secondary);
+}
+
+#add-points {
+    background-color: #8DD7CF;
+}
+
+#submit-button {
+    background-color: #F3C19D;
+}
+
+form {
+    display: none;
+}
+
+
+.card {
+    margin-bottom: 2%;
+
+}
+
+.row.points {
+    margin-top: 4%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #8DD7CF;
+    border-color: #67dfd3;
+}
+
+.row.points h6 {
+    display: inline;
+    text-align: center;
+}
+
+.file-image {
+    height: 80px;
+    width: 80px;
+}
+
+.box1 {
+    float: left;
+    margin-left: 10px;
+}
+
+#Points {
+    text-align: center;
+    color: black;
+    padding-top: 13%;
+    padding-bottom: 13%;
+}
+
+#Profile,
+#Task,
+#Points {
+    display: none;
+}
+
+/* .close-overflow {
+    overflow: hidden;
+}
+
+.close-horoverflow {
+    overflow-y: scroll;
+    overflow-x: hidden;
+} */
+
+.screenshot {
+    height: 300px;
+    background-color: white;
+}
+
+@media (min-width:1200px) {
+    .screenshot h6 {
+        padding-top: 40px;
+        padding-left: 200px;
+    }
+
+    #ssimg {
+        height: 150px;
+        width: auto;
+        margin-top: 75px;
+        margin-left: 280px;
+    }
+}
+
+@media(max-width:1200px) {
+    .screenshot h6 {
+        padding-top: 100px;
+        padding-left: 50px;
+    }
+
+    #ssimg {
+        height: 80px;
+        width: auto;
+        margin-top: 85px;
+        margin-left: 140px;
+    }
+}
+
+@media(max-width:600px) {
+    .screenshot h6 {
+        padding-top: 60px;
+        padding-left: 20px;
+    }
+
+    #ssimg {
+        height: 80px;
+        width: auto;
+        margin-top: 85px;
+        margin-left: 50px;
+    }
+
+}
+
+
+#view-detail {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
