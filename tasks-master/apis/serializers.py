@@ -1,20 +1,21 @@
 from rest_framework import serializers
 from .models import User, Profile, App
 from django.contrib.auth import authenticate
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.hashers import make_password
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('username', 'email', 'password')
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'password')
 
-        def create(self, validated_data):
-            user = User.objects.create(
-                username=validated_data["username"]
-            )
-            user.set_password(validated_data["password"])
-            user.save()
-            return user
+#         def create(self, validated_data):
+#             user = User.objects.create(
+#                 username=validated_data["password"], password=make_password(validated_data["password"]))
+#             user.save()
+#             # Token.objects.create(user=user)
+#             return user
 
 
 class ProfileSerializer(serializers.ModelSerializer):

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .serializers import UserSerializer, ProfileSerializer, AdminAppSerializer, UserAppSerializer, CreateAppSerializer
+from .serializers import ProfileSerializer, AdminAppSerializer, UserAppSerializer, CreateAppSerializer
 from rest_framework import generics
 from .models import User
 from django.contrib.auth import authenticate, logout
@@ -11,19 +11,36 @@ from .models import App
 from rest_framework.decorators import permission_classes, api_view
 from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from .models import Profile
-from rest_framework.authtoken.models import Token
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 # Create your views here.
 
 
 def index(request):
+    print(request.headers)
     return HttpResponse("Hello API !!")
 
 # Register a new user
 
 
 @permission_classes((AllowAny,))
-class register(generics.CreateAPIView):
-    serializer_class = UserSerializer
+class register(APIView):  # Register a new user
+    def post(self, request):
+        if request.data["username"] is None or request.data["email"] is None or request.data["password"] is None:
+            return Response({
+                "ERROR": "Please Enter The Details For Registration"
+            }, status=status.HTTP_400_BAD_REQUEST)
+        user = User(username=request.data["username"],
+                    password=request.data["password"], email=request.data["email"])
+        if user:
+            user.set_password(request.data["password"])
+            user.save()
+            return Response({
+                "success": "User registered succesfully"
+            }, status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response({
+                "ERROR": "Encountered an error"
+            }, status=status.HTTP_400_BAD_REQUEST)
 
 # login user
 
@@ -42,20 +59,22 @@ class login(APIView):
                 "ERROR": "Required fields are not provided"
             }, status=status.HTTP_400_BAD_REQUEST)
         user = authenticate(username=username, password=password)
-        token, _ = Token.objects.get_or_create(user=user)
         return Response({
-            "Messege": "Succesfullly logged in"
+            "Messege": "Succesfullly logged in",
+            "username": username,
+            "password": password,
         }, status=status.HTTP_200_OK)
 
 
 @permission_classes((AllowAny, ))
-@api_view(["GET"])
-def logout_view(request):
-    request.user.auth_token.delete()
+class LogoutView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
-    logout(request)
-
-    return Response('User Logged out Successfully')
+    def post(self, request):
+        # Logout the user by clearing the session
+        request.session.flush()
+        return Response({"detail": "Successfully logged out."})
 
 
 '''admin creates a task without file '''
