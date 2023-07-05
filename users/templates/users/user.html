@@ -421,7 +421,7 @@ const files = document.querySelector(".home");
 
 appret();
 async function appret() {
-    let link = new URL(`http://127.0.0.1:8000/api/allapps`);
+    let link = new URL(`https://mydjangosite.onrender.com/api/allapps`);
     const response = await fetch(link);
     const data = await response.json();
     displayitems(data);
@@ -469,7 +469,7 @@ function myfunction(id) {
     getapp()
 
     async function getapp() {
-        let link3 = new URL(`http://127.0.0.1:8000/api/getapp/${id}`);
+        let link3 = new URL(`https://mydjangosite.onrender.com/api/getapp/${id}`);
         const response3 = await fetch(link3);
         const data3 = await response3.json();
         console.log(data3);
@@ -488,7 +488,7 @@ function myfunction(id) {
             };
             saveapp();
             async function saveapp() {
-                fetch("http://127.0.0.1:8000/api/saveapp", {
+                fetch("https://mydjangosite.onrender.com/api/saveapp", {
                     method: "POST",
                     body: JSON.stringify(addfile1),
                     headers: {
@@ -509,9 +509,9 @@ homebtn.addEventListener("click", () => {
 //fetch get
 const logoutbtn = document.querySelector(".logout");
 logoutbtn.addEventListener("click", () => {
-    fetch("http://127.0.0.1:8000/api/logout").then(response => response.json()).then(json => console.log(json));
+    fetch("https://mydjangosite.onrender.com/api/logout").then(response => response.json()).then(json => console.log(json));
     alert("Logout Successful");
-    window.location.href = "http://127.0.0.1:8000/users/user";
+    window.location.href = "https://mydjangosite.onrender.com/users/user";
 })
     </script>
 <script>
@@ -547,7 +547,7 @@ const files = document.querySelector(".home");
 
 appret();
 async function appret() {
-    let link = new URL(`http://127.0.0.1:8000/api/allapps`);
+    let link = new URL(`https://mydjangosite.onrender.com/api/allapps`);
     const response = await fetch(link);
     const data = await response.json();
     displayitems(data);
@@ -595,7 +595,7 @@ function myfunction(id) {
     getapp()
 
     async function getapp() {
-        let link3 = new URL(`http://127.0.0.1:8000/api/getapp/${id}`);
+        let link3 = new URL(`https://mydjangosite.onrender.com/api/getapp/${id}`);
         const response3 = await fetch(link3);
         const data3 = await response3.json();
         console.log(data3);
@@ -614,7 +614,7 @@ function myfunction(id) {
             };
             saveapp();
             async function saveapp() {
-                fetch("http://127.0.0.1:8000/api/saveapp", {
+                fetch("https://mydjangosite.onrender.com/api/saveapp", {
                     method: "POST",
                     body: JSON.stringify(addfile1),
                     headers: {
@@ -635,9 +635,9 @@ homebtn.addEventListener("click", () => {
 //fetch get
 const logoutbtn = document.querySelector(".logout");
 logoutbtn.addEventListener("click", () => {
-    fetch("http://127.0.0.1:8000/api/logout").then(response => response.json()).then(json => console.log(json));
+    fetch("https://mydjangosite.onrender.com/api/logout").then(response => response.json()).then(json => console.log(json));
     alert("Logout Successful");
-    window.location.href = "http://127.0.0.1:8000/users/user";
+    window.location.href = "https://mydjangosite.onrender.com/users/user";
 })
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
