@@ -146,10 +146,10 @@ logbox.addEventListener("submit", (e) => {
         const data2 = await response1.json();
         console.log(data2);
         if (data2.userstatus == true) {
-            window.location.href = "http://127.0.0.1:8000/users/admin";
+            window.location.href = "https://mydjangosite.onrender.com/users/admin";
         }
         else {
-            window.location.href = "http://127.0.0.1:8000/users/user";
+            window.location.href = "https://mydjangosite.onrender.com/users/user";
         }
         window.localStorage.setItem("username", data2.username);
         window.localStorage.setItem("userid", data2.userid);
