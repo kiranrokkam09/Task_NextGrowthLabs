@@ -1,5 +1,14 @@
 
-echo"BUILD START"
-python3 -m pip install -r requirements.txt
-python 3 manage.py collectstatic --noinput --clear
-echo "BUILD END"
+#!/bin/bash
+
+echo "BUILD START"
+
+# Install dependencies
+npm install
+
+# Build your application
+npm run build
+
+pip install -r requirements.txt
+
+echo "BUILD COMPLETE"
