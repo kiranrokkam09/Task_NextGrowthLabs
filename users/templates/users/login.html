@@ -125,7 +125,7 @@ logbox.addEventListener("submit", (e) => {
     const password = document.querySelector("#Password");
     login()
     async function login() {
-        link = new URL(`http://127.0.0.1:8000/api/login`);
+        link = new URL(`https://mydjangosite.onrender.com/api/login`);
         const response1 = await fetch(link,
             {
                 method: "post",
@@ -167,7 +167,7 @@ regbox.addEventListener("submit", (e) => {
     const regpassword = document.querySelector('#reg-password');
     register()
     async function register() {
-        link = new URL(`http://127.0.0.1:8000/api/register`);
+        link = new URL(`https://mydjangosite.onrender.com/api/register`);
         const response1 = await fetch(link,
             {
                 method: "post",
