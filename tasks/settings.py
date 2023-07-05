@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,7 +93,7 @@ WSGI_APPLICATION = 'tasks.wsgi.application'
 #     }
 # }
 DATABASES={
-    "default":dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default":dj_database_url.parse("postgres://testdb_ssdc_user:pse9oc95HELOrlUP19xtgIXixK8NkOEv@dpg-ciilt62ip7vpels5bh50-a/testdb_ssdc")
 }
 MEDIA_URL = '/files/'
 
