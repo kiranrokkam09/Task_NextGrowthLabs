@@ -12,6 +12,7 @@ npm run build
 pip install -r requirements.txt
 
 # Specify the build output directory
-export VERCEL_OUTPUT_PATH=dist
+mkdir -p dist
+mv <path-to-build-output> dist
 
 echo "BUILD COMPLETE"
