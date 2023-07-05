@@ -3,11 +3,11 @@
 
 echo "BUILD START"
 
-# Install dependencies
-npm install
+# # Install dependencies
+# npm install
 
-# Build your application
-npm run build
+# # Build your application
+# npm run build
 
 pip install -r requirements.txt
 
